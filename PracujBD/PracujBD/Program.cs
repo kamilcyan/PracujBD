@@ -40,7 +40,7 @@ namespace PracujBD
                         LastName = lastnames[indexLastNames],
                         Adress = adress[indexAdress],
                         PnoneNumber = phone.ToString(),
-                        PnoneNumber = phone.ToString(),
+                        ExpectedSalary = (decimal)expectedSalary,
                         Profession = professions[indexProfessions]
                     };
                     db.Add(name);
