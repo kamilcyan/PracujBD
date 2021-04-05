@@ -10,10 +10,10 @@ namespace PracujBD
             Console.WriteLine("Hello World!");
 
             var p = new Program();
-            p.WriteIn();
+            p.WriteInServiceUser();
         }
 
-        public void WriteIn()
+        public void WriteInServiceUser()
         {
             string[] firstnames = System.IO.File.ReadAllLines("first-names.txt");
             string[] lastnames = System.IO.File.ReadAllLines("names.txt");
@@ -26,7 +26,7 @@ namespace PracujBD
             using (var db = new PracujContext())
             {
                 
-                for (int i = 1; i <= 10000; i++)
+                for (int i = 1; i <= 1; i++)
                 {
                     int indexFirstNames = r.Next(0, firstnames.Length - 1);
                     int indexLastNames = r.Next(0, lastnames.Length - 1);
@@ -44,6 +44,7 @@ namespace PracujBD
                         ExpectedSalary = (decimal)expectedSalary,
                         Profession = professions[indexProfessions],
                         Experience = MakingExperience(professions[indexExperience]),
+                        DateOfBirth = BirthDate()
                     };
                     db.Add(name);
                     db.SaveChanges();
@@ -57,7 +58,6 @@ namespace PracujBD
         public string MakingExperience(string xpr)
         {
             Random r = new Random();
-            Random r2 = new Random();
 
             int duration = r.Next(0, 1500);
             int duration2 = r.Next(0, 1500);
@@ -80,6 +80,17 @@ namespace PracujBD
 
                 return xpr + " " + date1 + "-" + date2;
             }
+        }
+
+        public DateTime BirthDate()
+        {
+            Random r = new Random();
+
+            int offset = r.Next(0, 7000);
+
+            DateTime d = new DateTime(1980, 1, 1);
+            
+            return d.AddDays(offset);
         }
     }
 }
