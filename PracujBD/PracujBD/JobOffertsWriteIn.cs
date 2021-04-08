@@ -18,6 +18,8 @@ namespace PracujBD
                 {
                     var job = new JobOffert
                     {
+                        NiceToHave = AddSkills(),
+                        Requirements = AddSkills(),
                         Post = professions[r.Next(0, professions.Length - 1)],
                         Workplace = adress[r.Next(0, adress.Length - 1)]
                     };
