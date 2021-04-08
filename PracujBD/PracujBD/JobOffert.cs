@@ -9,7 +9,9 @@ namespace PracujBD
     {
         public JobOffert()
         {
-            ServiceUsers = new HashSet<ServiceUser>();
+            ServiceUserMyApplications = new HashSet<ServiceUser>();
+            ServiceUserRecomendedOfferts = new HashSet<ServiceUser>();
+            ServiceUserSavedOfferts = new HashSet<ServiceUser>();
         }
 
         public int Id { get; set; }
@@ -26,6 +28,8 @@ namespace PracujBD
 
         public virtual LevelOfExperience LevelOfExperience { get; set; }
         public virtual TypeOfContract TypeOfContract { get; set; }
-        public virtual ICollection<ServiceUser> ServiceUsers { get; set; }
+        public virtual ICollection<ServiceUser> ServiceUserMyApplications { get; set; }
+        public virtual ICollection<ServiceUser> ServiceUserRecomendedOfferts { get; set; }
+        public virtual ICollection<ServiceUser> ServiceUserSavedOfferts { get; set; }
     }
 }

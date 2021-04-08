@@ -25,7 +25,12 @@ namespace PracujBD
         public int? MyApplicationId { get; set; }
         public string Cv { get; set; }
         public int? MessageId { get; set; }
+        public int? LevelOfLanguageId { get; set; }
 
+        public virtual LevelOfLanguage LevelOfLanguage { get; set; }
+        public virtual Message Message { get; set; }
+        public virtual JobOffert MyApplication { get; set; }
         public virtual JobOffert RecomendedOffert { get; set; }
+        public virtual JobOffert SavedOffert { get; set; }
     }
 }

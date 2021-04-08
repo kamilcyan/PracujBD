@@ -22,7 +22,6 @@ namespace PracujBD
         public virtual DbSet<BussinesService> BussinesServices { get; set; }
         public virtual DbSet<Faq> Faqs { get; set; }
         public virtual DbSet<JobOffert> JobOfferts { get; set; }
-        public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<LevelOfExperience> LevelOfExperiences { get; set; }
         public virtual DbSet<LevelOfLanguage> LevelOfLanguages { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
@@ -34,7 +33,7 @@ namespace PracujBD
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Pracuj");
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Pracuj;Integrated Security=true");
             }
         }
 
@@ -158,15 +157,6 @@ namespace PracujBD
                     .HasConstraintName("FK_Type_of_contract_Job_offert");
             });
 
-            modelBuilder.Entity<Language>(entity =>
-            {
-                entity.ToTable("Language");
-
-                entity.Property(e => e.LevelOfLanguageId).HasColumnName("Level_of_language_id");
-
-                entity.Property(e => e.Name).IsUnicode(false);
-            });
-
             modelBuilder.Entity<LevelOfExperience>(entity =>
             {
                 entity.ToTable("Level_of_experience");
@@ -242,6 +232,8 @@ namespace PracujBD
                     .IsUnicode(false)
                     .HasColumnName("Last_name");
 
+                entity.Property(e => e.LevelOfLanguageId).HasColumnName("Level_of_language_id");
+
                 entity.Property(e => e.MessageId).HasColumnName("Message_id");
 
                 entity.Property(e => e.MyApplicationId).HasColumnName("My_application_id");
@@ -263,10 +255,30 @@ namespace PracujBD
                     .HasMaxLength(200)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.RecomendedOffert)
+                entity.HasOne(d => d.LevelOfLanguage)
                     .WithMany(p => p.ServiceUsers)
+                    .HasForeignKey(d => d.LevelOfLanguageId)
+                    .HasConstraintName("FK_Level_of_language_Service_user");
+
+                entity.HasOne(d => d.Message)
+                    .WithMany(p => p.ServiceUsers)
+                    .HasForeignKey(d => d.MessageId)
+                    .HasConstraintName("FK_Message_Service_user");
+
+                entity.HasOne(d => d.MyApplication)
+                    .WithMany(p => p.ServiceUserMyApplications)
+                    .HasForeignKey(d => d.MyApplicationId)
+                    .HasConstraintName("FK_My_application_Service_user");
+
+                entity.HasOne(d => d.RecomendedOffert)
+                    .WithMany(p => p.ServiceUserRecomendedOfferts)
                     .HasForeignKey(d => d.RecomendedOffertId)
                     .HasConstraintName("FK_Recomended_offert_Service_user");
+
+                entity.HasOne(d => d.SavedOffert)
+                    .WithMany(p => p.ServiceUserSavedOfferts)
+                    .HasForeignKey(d => d.SavedOffertId)
+                    .HasConstraintName("FK_Saved_offert_Service_user");
             });
 
             modelBuilder.Entity<TypeOfContract>(entity =>

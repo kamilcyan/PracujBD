@@ -88,13 +88,6 @@ create table Message
 	Body varchar(100)
 )
 
-create table Language
-(
-	Id int Primary Key identity(1,1),
-	Name varchar(max),
-	Level_of_language_id int
-)
-
 create table Level_of_language
 (
 	Id int Primary Key identity(1,1),
@@ -108,4 +101,7 @@ alter table Service_user add constraint FK_Recomended_offert_Service_user Foreig
 alter table Service_user add constraint FK_Saved_offert_Service_user Foreign Key (Saved_offert_id) references Job_offert(Id)
 alter table Service_user add constraint FK_My_application_Service_user Foreign Key (My_application_id) references Job_offert(Id)
 alter table Service_user add constraint FK_Message_Service_user Foreign Key (Message_id) references Message(Id)
-alter table Language add constraint FK_Level_of_language_Language Foreign Key (Level_of_language_id) references Level_of_language(Id)
+
+alter table Service_user add Level_of_language_id int 
+
+alter table Service_user add constraint FK_Level_of_language_Service_user Foreign Key (Level_of_language_id) references Level_of_language(Id)
