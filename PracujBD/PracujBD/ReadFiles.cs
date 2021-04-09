@@ -14,6 +14,10 @@ namespace PracujBD
         public string[] responsabilities { get; set; }
         public string[] wePropose { get; set; }
         public string[] weRequire { get; set; }
+        public string[] companyNames { get; set; }
+
+        public string[] levelOfExperience = { "No experience", "Beginner", "Average", "Advanced", "Master" };
+        public string[] typesOfContract = { "1/8", "1/4", "Half", "Full", "Trial", "Practice" };
         public string[] languages = { "English", "Deutsh", "French", "Chineese", "Hindi", "Russian" };
 
         public ReadFiles()
@@ -26,26 +30,8 @@ namespace PracujBD
             responsabilities = System.IO.File.ReadAllLines("responsabilities.txt");
             wePropose = System.IO.File.ReadAllLines("wePropose.txt");
             weRequire = System.IO.File.ReadAllLines("weRequire.txt");
+            companyNames = System.IO.File.ReadAllLines("companyNames.txt");
         }
-
-        //protected string AddSkills()
-        //{
-        //    Random r = new Random();
-        //    Random r2 = new Random();
-
-        //    string skill = null;
-
-
-        //    int iteration = r2.Next(0, 5);
-
-        //    for (int i = 0; i <= iteration; i++)
-        //    {
-        //        int indexSkills = r.Next(0, skills.Length - 1);
-
-        //        skill += skills[indexSkills] + ", ";
-        //    }
-        //    return skill;
-        //}
 
         protected string MakingExperience(string xpr)
         {

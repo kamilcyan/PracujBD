@@ -27,7 +27,7 @@ namespace PracujBD
                         Profession = professions[r.Next(0, professions.Length - 1)],
                         Experience = MakingExperience(professions[r.Next(0, professions.Length - 1)]),
                         DateOfBirth = BirthDate(),
-                        Skills = AddSkills(),
+                        Skills = AddNeeded(skills, 5),
                         LevelOfLanguageId = r.Next(1, 6),
                         Language = AddLanguage()
                     };

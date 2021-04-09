@@ -12,11 +12,18 @@ namespace PracujBD
             //var s = new ServiceUserWriteIn();
             //s.WriteInServiceUser();
 
-            //var l = new LevelOfLanguageWriteIn();
-            //l.WriteInLevelOfLanguage();
-
             var j = new JobOffertsWriteIn();
             j.WriteInJobOfferts();
+
+            //    var l = new LevelOfLanguageWriteIn();
+            //    l.WriteInLevelOfLanguage();
+
+
+            //    var t = new TypeOfContractWriteIn();
+            //    t.WriteInTypeOfContract();
+
+            //    var le = new LevelOfExperienceWriteIn();
+            //    le.WriteInLevelOfExperience();
+            }
         }
-    }
 }

@@ -4,21 +4,21 @@
 
 namespace PracujBD
 {
-    public class LevelOfExperienceWriteIn : ReadFiles
+    public class TypeOfContractWriteIn : ReadFiles
     {
-        public void WriteInLevelOfExperience()
+        public void WriteInTypeOfContract()
         {
             Random r = new Random();
 
             using (var db = new PracujContext())
             {
-                for (int i = 0; i < levelOfExperience.Length; i++)
+                for (int i = 0; i < typesOfContract.Length; i++)
                 {
-                    var lvl = new LevelOfExperience
+                    var type = new TypeOfContract
                     {
-                        Name = levelOfExperience[i]
+                        Name = typesOfContract[i]
                     };
-                    db.Add(lvl);
+                    db.Add(type);
                     db.SaveChanges();
                 }
             }
