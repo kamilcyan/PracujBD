@@ -9,21 +9,24 @@ namespace PracujBD
         {
             Console.WriteLine("Hello World!");
 
+            var r = new ReadFiles();
+
+
             //var s = new ServiceUserWriteIn();
             //s.WriteInServiceUser();
 
             var j = new JobOffertsWriteIn();
             j.WriteInJobOfferts();
 
-            //    var l = new LevelOfLanguageWriteIn();
-            //    l.WriteInLevelOfLanguage();
+            //var l = new LevelOfLanguageWriteIn();
+            //l.WriteInLevelOfLanguage();
 
 
-            //    var t = new TypeOfContractWriteIn();
-            //    t.WriteInTypeOfContract();
+            //var t = new TypeOfContractWriteIn();
+            //t.WriteInTypeOfContract();
 
-            //    var le = new LevelOfExperienceWriteIn();
-            //    le.WriteInLevelOfExperience();
-            }
+            //var le = new LevelOfExperienceWriteIn();
+            //le.WriteInLevelOfExperience();
+        }
         }
 }

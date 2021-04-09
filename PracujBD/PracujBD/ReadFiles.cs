@@ -22,15 +22,15 @@ namespace PracujBD
 
         public ReadFiles()
         {
-            skills = System.IO.File.ReadAllLines("skills.txt");
-            firstnames = System.IO.File.ReadAllLines("first-names.txt");
-            lastnames = System.IO.File.ReadAllLines("names.txt");
-            adress = System.IO.File.ReadAllLines("places.txt");
-            professions = System.IO.File.ReadAllLines("professions.txt");
-            responsabilities = System.IO.File.ReadAllLines("responsabilities.txt");
-            wePropose = System.IO.File.ReadAllLines("wePropose.txt");
-            weRequire = System.IO.File.ReadAllLines("weRequire.txt");
-            companyNames = System.IO.File.ReadAllLines("companyNames.txt");
+            skills = System.IO.File.ReadAllLines("skills.txt", System.Text.Encoding.UTF8);
+            firstnames = System.IO.File.ReadAllLines("first-names.txt", System.Text.Encoding.UTF8);
+            lastnames = System.IO.File.ReadAllLines("names.txt", System.Text.Encoding.UTF8);
+            adress = System.IO.File.ReadAllLines("places.txt", System.Text.Encoding.UTF8);
+            professions = System.IO.File.ReadAllLines("professions.txt", System.Text.Encoding.UTF8);
+            responsabilities = System.IO.File.ReadAllLines("respons.txt", System.Text.Encoding.UTF8);
+            wePropose = System.IO.File.ReadAllLines("wePropose.txt", System.Text.Encoding.UTF8);
+            weRequire = System.IO.File.ReadAllLines("weRequire.txt", System.Text.Encoding.UTF8);
+            companyNames = System.IO.File.ReadAllLines("companyNames.txt", System.Text.Encoding.UTF8);
         }
 
         protected string MakingExperience(string xpr)
