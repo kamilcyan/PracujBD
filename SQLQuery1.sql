@@ -8,12 +8,12 @@ create table Job_offert
 	Type_of_contract_id int,
 	Company_name varchar(50),
 	Level_of_experience_id int,
-	Post varchar(10),
-	Requirements varchar(100),
-	Nice_to_have varchar(100),
-	Responsabilities varchar(100),
-	We_propose varchar(100),
-	Job_description varchar(100)
+	Post varchar(100),
+	Requirements varchar(300),
+	Nice_to_have varchar(300),
+	Responsabilities varchar(300),
+	We_propose varchar(300),
+	Job_description varchar(300)
 )
 
 create table Type_of_contract 

@@ -12,11 +12,11 @@ namespace PracujBD
             var r = new ReadFiles();
 
 
-            //var s = new ServiceUserWriteIn();
-            //s.WriteInServiceUser();
+            var s = new ServiceUserWriteIn();
+            s.WriteInServiceUser();
 
-            var j = new JobOffertsWriteIn();
-            j.WriteInJobOfferts();
+            //var j = new JobOffertsWriteIn();
+            //j.WriteInJobOfferts();
 
             //var l = new LevelOfLanguageWriteIn();
             //l.WriteInLevelOfLanguage();
@@ -28,5 +28,5 @@ namespace PracujBD
             //var le = new LevelOfExperienceWriteIn();
             //le.WriteInLevelOfExperience();
         }
-        }
+    }
 }
