@@ -18,10 +18,12 @@ namespace PracujBD
                 {
                     var job = new JobOffert
                     {
-                        NiceToHave = AddSkills(),
-                        Requirements = AddSkills(),
+                        NiceToHave = AddNeeded(skills, 5),
+                        Requirements = AddNeeded(weRequire, 2),
                         Post = professions[r.Next(0, professions.Length - 1)],
-                        Workplace = adress[r.Next(0, adress.Length - 1)]
+                        Workplace = adress[r.Next(0, adress.Length - 1)],
+                        Responsabilities = AddNeeded(responsabilities, 2),
+                        WePropose = AddNeeded(wePropose, 2)                        
                     };
                     db.Add(job);
                     db.SaveChanges();

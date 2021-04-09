@@ -11,6 +11,9 @@ namespace PracujBD
         public string[] adress { get; set; }
         public string[] professions { get; set; }
         public string[] skills { get; set; }
+        public string[] responsabilities { get; set; }
+        public string[] wePropose { get; set; }
+        public string[] weRequire { get; set; }
         public string[] languages = { "English", "Deutsh", "French", "Chineese", "Hindi", "Russian" };
 
         public ReadFiles()
@@ -20,26 +23,29 @@ namespace PracujBD
             lastnames = System.IO.File.ReadAllLines("names.txt");
             adress = System.IO.File.ReadAllLines("places.txt");
             professions = System.IO.File.ReadAllLines("professions.txt");
+            responsabilities = System.IO.File.ReadAllLines("responsabilities.txt");
+            wePropose = System.IO.File.ReadAllLines("wePropose.txt");
+            weRequire = System.IO.File.ReadAllLines("weRequire.txt");
         }
 
-        protected string AddSkills()
-        {
-            Random r = new Random();
-            Random r2 = new Random();
+        //protected string AddSkills()
+        //{
+        //    Random r = new Random();
+        //    Random r2 = new Random();
 
-            string skill = null;
+        //    string skill = null;
 
 
-            int iteration = r2.Next(0, 5);
+        //    int iteration = r2.Next(0, 5);
 
-            for (int i = 0; i <= iteration; i++)
-            {
-                int indexSkills = r.Next(0, skills.Length - 1);
+        //    for (int i = 0; i <= iteration; i++)
+        //    {
+        //        int indexSkills = r.Next(0, skills.Length - 1);
 
-                skill += skills[indexSkills] + ", ";
-            }
-            return skill;
-        }
+        //        skill += skills[indexSkills] + ", ";
+        //    }
+        //    return skill;
+        //}
 
         protected string MakingExperience(string xpr)
         {
@@ -86,6 +92,23 @@ namespace PracujBD
             DateTime d = new DateTime(1980, 1, 1);
 
             return d.AddDays(offset);
+        }
+
+        protected string AddNeeded(string[] table, int range)
+        {
+            Random r = new Random();
+            Random r2 = new Random();
+
+            string response = null;
+
+
+            int iteration = r2.Next(0, range);
+
+            for (int i = 0; i <= iteration; i++)
+            {
+                response += table[r.Next(0, table.Length - 1)] + ", ";
+            }
+            return response;
         }
     }
 }
